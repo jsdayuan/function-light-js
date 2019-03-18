@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Page Title</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+
+</body>
+<script>
+  let resolvePromise = new Promise(resolve => {
+    let resolvedPromise = Promise.resolve()
+    resolve(resolvedPromise)
+  })
+  resolvePromise.then(() => {
+    console.log('resolvePromise resolved')
+  })
+  let resolvedPromiseThen = Promise.resolve().then(res => {
+    console.log('promise1')
+  })
+  resolvedPromiseThen
+    .then(() => {
+      console.log('promise2')
+    })
+    .then(() => {
+      console.log('promise3')
+    })
+</script>
+
+</html>

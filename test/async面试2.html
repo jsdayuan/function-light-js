@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Page Title</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+
+</body>
+<script>
+  let p = () => {
+    return new Promise((resolve) => {
+      console.log(123)
+      resolve()
+    })
+  }
+  // async function f() {
+  //   await p()
+  //   console.log(1);
+  // }
+
+  // node.js8及即将推广的标准应该会解析成下面这样
+  // function f() {
+  //   Promise.resolve(p()).then(() => {
+  //     console.log(1)
+  //   })
+  // }
+
+  //其余的版本应该会解析成下面的这样
+  function f() {
+    new Promise(resolve => {
+      resolve(p())
+    }).then(() => {
+      console.log(1)
+    })
+  }
+f()
+</script>
+
+</html>
