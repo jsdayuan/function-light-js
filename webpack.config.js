@@ -8,6 +8,7 @@ module.exports = {
   },
   devServer: {
     contentBase: path.join(__dirname, "dist"),
+    host: "127.0.0.1"
   },
   plugins: [
     new HtmlWebpackPlugin({

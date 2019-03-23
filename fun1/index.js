@@ -16,7 +16,7 @@ foo()
 //   return str => fn(str)
 // }
 
-let foo2=fn=>str=>fn(str)
+let foo2 = fn => str => fn(str)
 
 // function foofn1(s) {
 //   return s.toLowerCase()
@@ -33,3 +33,12 @@ let name2 = foo2(foofn2)
 
 console.log(name('dayuAn'))
 console.log(name2('dayuan'))
+
+//
+
+const frit = res => num => {
+  let arrs = [...res, num]
+  return arrs
+}
+
+Promise.resolve([123, 423, 234]).then(frit).then(res2 => console.log(res2(8)))
