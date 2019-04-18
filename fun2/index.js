@@ -104,20 +104,21 @@ function curryProps(fn, arity = 2) {
   })({});
 }
 
-function partiaFoo({
-  x,
-  y
-} = {}) {
-  return [x, y]
+function partiaFoo({ x, y } = {}) {
+  return [x, y];
 }
 
-console.log(partialProps(partiaFoo, {
-  x: 123
-})({
-  y: 122
-}))
-console.log(curryProps(partiaFoo)({
-  y: 122
-})({
-  yx: 1288
-}))
+console.log(
+  partialProps(partiaFoo, {
+    x: 123
+  })({
+    y: 122
+  })
+);
+console.log(
+  curryProps(partiaFoo)({
+    y: 122
+  })({
+    yx: 1288
+  })
+);
