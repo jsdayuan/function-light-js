@@ -40,7 +40,7 @@ console.log(wordUser, 'wordUser')
 
 function compose(...fns) {
   return function (result) {
-    let list = fns;
+    let list = [...fns];
     while (list.length > 0) {
       result = list.pop()(result)
     }
@@ -70,3 +70,31 @@ function opcompose(...fns) {
   }
 }
 console.log(opcompose(unique, words)('12,12 132, 3213 aa lasl a a'), '递归实现方式')
+
+// 修正第一次调用单参数限制
+function compose5(...fns) {
+  return fns.reverse().reduce((fn1, fn2) => {
+    return function (...args) {
+      return fn2(fn1(...args))
+    }
+  })
+}
+
+console.log(compose5(unique, words)('12,12 132, 3213 aa lasl a a'), '修正第一次调用单参数限制')
+
+//  练习递归实现compose
+function compose6(...fns) {
+  let [fn1, fn2, ...rest] = fns.reverse()
+
+  function composed(...args) {
+    return fn2(fn1(...args))
+  }
+  if (!rest.length) return composed
+  composed(...rest.reverse(), composed)
+
+}
+
+console.log(compose6(unique, words)('12,12 132, 3213 aa lasl a a'), '练习递归')
+
+
+
