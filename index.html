@@ -6,11 +6,18 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>hello</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
+
 </head>
+<style>
+  .qrcode {
+    display: inline-block
+  }
+</style>
 
 <body>
   <div id="app">
-    hello0
+    <div onclick="init()">hello0</div>
+    <div class="qrcode" id="qrCodeUrl"></div>
   </div>
 
 </body>

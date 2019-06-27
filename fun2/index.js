@@ -30,7 +30,7 @@ function curry(fn, arity = fn.length) {
   })([]);
 }
 
-let _curry = (fn, arity = fb.length) =>
+let _curry = (fn, arity = fn.length) =>
   (function nextCurried(prevArgs) {
     return (...nextArgs) => {
       let args = prevArgs.concat(nextArgs);
@@ -122,3 +122,15 @@ console.log(
     yx: 1288
   })
 );
+
+//柯里化
+let curryOfJ = (fn, ...args) =>
+  args.length >= fn.length
+    ? fn(...args)
+    : (...lastArgs) => curryOfJ(fn, ...args, ...lastArgs)
+
+function add6(a, b, c) {
+  return a + b + c
+}
+let juejin_test = curryOfJ(add6, 3);
+console.log(juejin_test(1, 6), "add6");

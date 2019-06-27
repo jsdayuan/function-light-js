@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <button onclick="test(1,2)">btn</button>
+</body>
+<script>
+  function jl(fn, wait) {
+    let now = 0
+    function jled(...args) {
+      if (+new Date() - now >= wait) {
+        fn(...args)
+        now = +new Date()
+      }
+    }
+    return jled
+  }
+
+
+
+  async function pl(...args) {
+    let str = await add(...args)
+    return str
+  }
+
+  let test = jl(pl, 1000)
+</script>
+
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <button onclick="test(1,2)">btn</button>
+</body>
+<script>
+  function dou(fn, wait) {
+    let timer;
+    function doued(...args) {
+      if (timer) {
+        clearTimeout(timer)
+      }
+      timer = setTimeout(_ => {
+        fn(...args)
+      }, wait)
+    }
+    return doued
+  }
+
+  function foo(a, b) {
+    console.log(a + b)
+  }
+  let test = dou(foo, 1000)
+
+</script>
+
+</html>

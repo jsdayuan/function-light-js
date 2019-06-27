@@ -11,6 +11,7 @@ function partial(fn, ...defArgs) {
 }
 
 var getPerson = partial(ajax, 'http://person')
+
 var getLastOrder = partial(ajax, 'http://order', { id: 1 })
 
 getLastOrder(function (order) {
@@ -53,6 +54,7 @@ function partialRight(fn, ...lastArgs) {
     fn(...prevArgs, ...lastArgs)
   }
 }
+
 var processPerson = partialRight(getPerson, outputPersonName)
 
 getLastOrder(function (order) {
@@ -65,13 +67,12 @@ function makeObjProp(name, value) {
   return setProp(name, {}, value)
 }
 
-var personData = partial(makeObjProp, 'id')
+let personData = partial(makeObjProp, 'id')
 
-var lookupPerson = compose(processPerson, personData, extractParsonId)
+let lookupPerson = compose(processPerson, personData, extractParsonId)
 
 getLastOrder(lookupPerson)
 
 //函数组合是一种函数的模式，它能将一个函数调用输出 路由 到另一个函数的调用上，然后一直进行下去。
 // 因为js函数只能返回单个值，这个模式本质上要求所有组合中的函数（除去第一个调用的函数）是一元的，当前函数从上一个函数输出中只接受一个输入
-
 
