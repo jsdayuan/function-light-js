@@ -19,3 +19,9 @@ function as() {
 }
 as()
 // console.log(c.prototype)
+
+let arr = [{ a: 1 }, { a: 2 }, { a: 3 }]
+arr.map(item => {
+  item.a *= 2
+})
+console.log(arr)

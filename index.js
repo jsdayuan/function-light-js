@@ -5,5 +5,9 @@
 // import fun4 from "./fun4"   //回顾形参 组合函数
 // import fun5 from "./fun5" //aop 
 // import fun6 from "./fun6" //减少副作用
-import fun7 from "./fun7" //值的不可变性
+// import fun7 from "./fun7" //值的不可变性
+// import fun8 from "./fun8" //闭包vs对象
+import fun9 from "./fun9" //列表操作
+
+
 
