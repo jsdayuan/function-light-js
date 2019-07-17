@@ -18,10 +18,12 @@ let ax = xf(foo(5, 5))
 console.log(ax, 'ax')
 
 function words(str) {
+  console.log(1)
   return String(str).toLowerCase().split(' ').filter(v => v)
 }
 
 function unique(list) {
+  console.log(2)
   let uniqList = [];
   for (let i = 0; i < list.length; i++) {
     if (uniqList.indexOf(list[i]) === -1) {
@@ -90,7 +92,7 @@ function compose6(...fns) {
     return fn2(fn1(...args))
   }
   if (!rest.length) return composed
-  composed(...rest.reverse(), composed)
+  return compose6(...rest.reverse(), composed)
 
 }
 
