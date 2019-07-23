@@ -48,3 +48,16 @@ function StudentRecord(name, major, gpa) {
 var student = StudentRecord('Kule Simpson', 'CS', 4)
 
 student()
+
+//弹簧床
+function t(fn){
+   return function ted(...args){
+      let result =fn(...args)
+
+      while(typeof result=='function'){
+        result=result()
+      }
+
+      return result
+   }
+}

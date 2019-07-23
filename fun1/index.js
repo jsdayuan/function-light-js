@@ -42,3 +42,4 @@ const frit = res => num => {
 }
 
 Promise.resolve([123, 423, 234]).then(frit).then(res2 => console.log(res2(8)))
+

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+  function compose(...fns) {
+    let [fn1, fn2, ...rest] = fns.reverse()
+
+    function composed(...args) {
+      return fn2(fn1(...args))
+    }
+    if (!rest.length) return composed
+    return compose(...rest.reverse(), composed)
+  }
+
+
+  //partial
+  function partial(fn, ...prevArgs) {
+    return function (...lastArgs) {
+      return fn(...prevArgs, ...lastArgs)
+    }
+  }
+
+  let a = (a, b) => a + b
+  let b = a => a + 1
+  let c = a => a + 1
+
+
+
+  console.log(compose(c, b, a)(5, 5))
+
+
+  async function getList(arr) {
+    let list = await new Promise((resolve, reject) => {
+      resolve([1, 2, 3, ...arr])
+    })
+    return list
+  }
+
+  function getNum(num) {
+    return num % 2
+  }
+
+  function filters(fn, arr) {
+    return arr.filter(fn)
+  }
+
+  function add(arr) {
+    console.log(arr)
+    return arr.map(val => val + 2)
+  }
+
+  //异步compose
+  // console.log(compose(add, partial(filters, getNum), getList)([4, 5, 6]))
+
+
+
+
+  let l = []
+  async function getList2(arr) {
+    console.log('进入')
+    let list = await new Promise((resolve, reject) => {
+      resolve(arr)
+    })
+    l.push(list)
+    console.log(l[list], 123)
+  }
+  function fff() {
+    for (let i = 0; i < 2; i++) {
+      getList2(i)
+    }
+    console.log('wancheng')
+    setTimeout(()=>{
+      console.log(777777777)
+    })
+  }
+  fff()
+
+  //执行栈先进后出  任务队列先进先出
+</script>
+
+</html>

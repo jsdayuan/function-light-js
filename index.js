@@ -7,7 +7,10 @@
 // import fun6 from "./fun6" //减少副作用
 // import fun7 from "./fun7" //值的不可变性
 // import fun8 from "./fun8" //闭包vs对象
-import fun9 from "./fun9" //列表操作
+// import fun9 from "./fun9" //列表操作
+// import fun10 from "./fun10" //函数递归
+// import fun11 from "./fun11" //异步的函数式
+import rxjs from "./rxjs"  //rxjs test
 
 
 

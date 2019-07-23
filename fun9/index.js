@@ -58,7 +58,7 @@ function isOdd(arr) {
 
 function double(arr) {
   return arr.reduce((newArr, val) => {
-    newArr.push(val * 2)
+    newArr.push(val * 2);
     return newArr
   }, [])
 }
