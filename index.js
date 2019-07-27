@@ -10,7 +10,8 @@
 // import fun9 from "./fun9" //列表操作
 // import fun10 from "./fun10" //函数递归
 // import fun11 from "./fun11" //异步的函数式
-import rxjs from "./rxjs"  //rxjs test
+// import fun12 from "./fun12" //融会贯通
+// import rxjs from "./rxjs"  //rxjs test
 
 
 

@@ -2,7 +2,6 @@ import { Observable, Subject } from 'rxjs/Rx';
 import 'rxjs/add/observable/of';
 import 'rxjs/add/operator/map';
 
-
 const app = document.getElementById('app');
 
 let btn = document.createElement('button')
