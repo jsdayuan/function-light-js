@@ -3,6 +3,12 @@
  * 数据格式 [{id:AApl,price:121.7,change:0.01}]
  */
 
+var formatDecimal = unboundMethod('toFixed')(2)
+var formatChange = pipe(formatDecimal, formatSign)
+var formatPrice = pipe(formatDecimal, formatChange)
+var processNewStock = pipe(addStockName, formatStockNumbers)
+var observableMapperFns=[processNewStock,formatStockNumbers]
+
 
 function addStockName(stock) {
   return setProp('name', stock, stock.id)
@@ -23,10 +29,7 @@ function transformObservable(mapperFn, obsv) {
   return obsv.map(mapperFn)
 }
 
-var formatDecimal = unboundMethod('toFixed')(2)
-var formatChange = pipe(formatDecimal, formatSign)
-var formatPrice = pipe(formatDecimal, formatChange)
-var processNewStock = pipe(addStockName, formatStockNumbers)
+
 
 function formatStockNumbers(stock) {
   let updateTuples = [

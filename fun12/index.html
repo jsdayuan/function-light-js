@@ -1,17 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>股票系统</title>
 </head>
+
 <body>
-  
+    <h1>Functional-Light JavaScript, Ch11: Stock Ticker</h1>
+
+    <ul id="stock-ticker"></ul>
 </body>
 <script src="./fb-helpers.js"></script>
 <script>
-let a=(a,b,c,d)=>a+b+c+d
-console.log(curry(a,4)(1)(2)(3)(4))
+  let a = a => a + 1
+  let b = a => a + 2
+  let c = a => a + 3
+  let arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+  console.log(pipe(a, b, c)(2), 'pipe')
+  console.log(filterOut(v => v % 2 == 0, arr), 'filterOut')
 </script>
+
 </html>
