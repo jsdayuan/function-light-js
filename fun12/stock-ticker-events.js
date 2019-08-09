@@ -5,7 +5,6 @@
 
 var formatDecimal = unboundMethod('toFixed')(2)
 var formatChange = pipe(formatDecimal, formatSign)
-var formatPrice = pipe(formatDecimal, formatChange)
 var processNewStock = pipe(addStockName, formatStockNumbers)
 var observableMapperFns=[processNewStock,formatStockNumbers]
 
