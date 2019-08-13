@@ -12,7 +12,9 @@
 // import fun11 from "./fun11" //异步的函数式
 // import fun12 from "./fun12" //融会贯通
 // import rxjs from "./rxjs"  //rxjs test
-import Transducing from "./transducing/index"
+// import Transducing from "./transducing"  //附录A transducing
+// import Monad from "./monad/index"  //附录B Monad
+import ramda from "./ramda/" //函数式编程实用库
 
 
 
